@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Do Re Mi App - The ultimate platform for creative collaboration in music, design, and more.">
+  <meta name="author" content="D'Marques Coleman">
+  <meta name="keywords" content="music collaboration, design platform, creative community, Do Re Mi app, musicians, artists, networking">
+  <link rel="canonical" href="https://www.doremiapp.com">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Do Re Mi - Collaborate, Create, Elevate">
+  <meta property="og:description" content="Join the world’s best platform for creative collaboration in music, design, and more.">
+  <meta property="og:image" content="https://www.doremiapp.com/og-image.jpg">
+  <meta property="og:url" content="https://www.doremiapp.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Do Re Mi - Collaborate, Create, Elevate">
+  <meta name="twitter:description" content="Join the best platform for creative collaboration in music, design, and more.">
+  <meta name="twitter:image" content="https://www.doremiapp.com/twitter-image.jpg">
+  <meta name="twitter:site" content="@doremiapp">
+
+  <!-- LinkedIn & Other Social -->
+  <meta property="og:site_name" content="Do Re Mi App">
+  <meta property="article:author" content="D. Coleman">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Preload Video for Performance -->
+  <link rel="preload" as="video" href="videobkgrd.mp4" type="video/mp4">
+
+  <title>Do Re Mi - Collaborate, Create, Elevate</title>
+</head>
+
+<body>
+   <!-- Navigation -->
+  <!--<header>
+    <nav id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#onboarding">Onboarding</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#awards">Awards</a></li>
+      </ul>
+    </nav>
+  </header>-->
+
+  <main>
+    <!-- Hero Section with Video Background -->
+    <section id="hero" class="parallax-section section">
+      <div class="video-container" aria-hidden="true">
+        <video autoplay muted loop id="bg-video">
+          <source src="videobkgrd.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Onboarding Section -->
+      <div id="onboarding" class="onboarding-container">
+        <div id="onboarding-step-1" class="onboarding-step active">
+          <h2>Welcome to Do Re Mi!</h2>
+          <p>We connect creators from all industries to collaborate, share, and grow.</p>
+          <button id="next-step-1">Next</button>
+        </div>
+  
+        <div id="onboarding-step-2" class="onboarding-step">
+          <h2>Explore Features</h2>
+          <p>Use our collaboration hub, explore creative tools, and showcase your work.</p>
+          <button id="next-step-2">Next</button>
+        </div>
+  
+        <div id="onboarding-step-3" class="onboarding-step">
+          <h2>Join Us</h2>
+          <p>Ready to start collaborating? Sign up now or login to your existing account.</p>
+          <button id="sign-up">Sign Up</button>
+          <button id="log-in">Log In</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Login Form -->
+    <form id="login-form" class="form active" aria-labelledby="login-heading">
+      <img src="logo.png" width="300" height="175" alt="Do Re Mi Logo" class="logo">
+      <h2 id="login-heading">Login</h2>
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="Enter your email" required aria-required="true">
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password" required aria-required="true">
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <p>
+        Don't have an account? 
+        <a href="#" id="show-register">Register</a>
+      </p>
+    </form>
+
+    <!-- Registration Form -->
+    <form id="register-form" class="form" aria-labelledby="register-heading">
+      <img src="logo.png" width="300" height="175" alt="Do Re Mi Logo" class="logo">
+      <h2 id="register-heading">Register</h2>
+      <div class="form-group">
+        <label for="register-name">Full Name</label>
+        <input type="text" id="register-name" placeholder="Enter your name" required aria-required="true">
+      </div>
+      <div class="form-group">
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" placeholder="Enter your email" required aria-required="true">
+      </div>
+      <div class="form-group">
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" placeholder="Enter your password" required aria-required="true">
+      </div>
+      <div class="form-group">
+        <label for="industry">Select Your Industry</label>
+        <select id="industry" required aria-required="true">
+          <option value="" disabled selected>Select an industry</option>
+          <option value="music">Music</option>
+          <option value="wedding">Wedding</option>
+          <option value="technology">Technology</option>
+          <option value="fashion">Fashion</option>
+          <option value="education">Education</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="food">Food & Beverage</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="real-estate">Real Estate</option>
+          <option value="finance">Finance</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Register</button>
+      <p>
+        Already have an account? 
+        <a href="#" id="show-login">Login</a>
+      </p>
+    </form>
+  
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Do Re Mi App. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
