@@ -26,3 +26,8 @@ class VibeAI {
 // Initialize V.I.B.E.
 const vibe = new VibeAI();
 
+import * as tf from '@tensorflow/tfjs';
+import '@tensorflow/tfjs-backend-webgl';
+
+// Set WebGL as the backend
+tf.setBackend('webgl').then(() => console.log('Using WebGL Backend'));
