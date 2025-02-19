@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic DAW Interface</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@magenta/music"></script>
+    <link rel="stylesheet" href="daw.css">
+</head>
+<body>
+
+    <!-- 🎵 Zoom Monitor (Top Left) -->
+    <div class="zoom-monitor">
+        <h2>Zoom Monitor</h2>
+        <canvas id="waveform"></canvas>
+    </div>
+
+    <!-- 🎚 Mixer Section -->
+    <div class="mixer">
+        <!-- Individual Track -->
+        <div class="track">
+            <h3>Track 1</h3>
+            <div class="knob-container">
+                <svg class="knob" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="gray" stroke-width="10" fill="black"/>
+                    <line class="knob-pointer" x1="50" y1="50" x2="50" y2="15" stroke="red" stroke-width="5"/>
+                </svg>
+            </div>
+            <input type="range" class="fader" min="0" max="100" value="50">
+            <div class="controls">
+                <button class="mute">M</button>
+                <button class="solo">S</button>
+                <button class="record">R</button>
+            </div>
+        </div>
+        <!-- More tracks can be added here -->
+    </div>
+
+    <!-- 🚀 V.I.B.E. Circuit Panel -->
+    <div class="vibe-panel">
+        <h2>V.I.B.E. Circuit</h2>
+        <button class="vibe-button">Activate</button>
+    </div>
+
+    <!-- 🎛 Transport Controls -->
+    <div class="transport">
+        <button class="play">▶</button>
+        <button class="stop">■</button>
+        <button class="record">●</button>
+        <button class="loop">🔄</button>
+    </div>
+
+    <script src="daw.js"></script>
+</body>
+</html>
