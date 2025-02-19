@@ -14,11 +14,11 @@
     <div class="zoom-monitor">
         <h2>Zoom Monitor</h2>
         <canvas id="waveform"></canvas>
+        <video id="videoChat" autoplay></video>
     </div>
 
-    <!-- 🎚 Mixer Section -->
+    <!-- 🎚 Mixer Section (Bottom) -->
     <div class="mixer">
-        <!-- Individual Track -->
         <div class="track">
             <h3>Track 1</h3>
             <div class="knob-container">
@@ -34,13 +34,12 @@
                 <button class="record">R</button>
             </div>
         </div>
-        <!-- More tracks can be added here -->
     </div>
 
-    <!-- 🚀 V.I.B.E. Circuit Panel -->
+    <!-- 🚀 V.I.B.E. Circuit Panel (Top Right) -->
     <div class="vibe-panel">
         <h2>V.I.B.E. Circuit</h2>
-        <button class="vibe-button">Activate</button>
+        <button id="vibe-start">Activate AI</button>
     </div>
 
     <!-- 🎛 Transport Controls -->
@@ -54,3 +53,4 @@
     <script src="daw.js"></script>
 </body>
 </html>
+

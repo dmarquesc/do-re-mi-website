@@ -4,100 +4,55 @@ body {
     background: #121212;
     color: white;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
 }
 
-/* 🎵 Zoom Monitor */
+/* 🎵 Zoom Monitor (Top Left) */
 .zoom-monitor {
-    width: 300px;
-    height: 150px;
-    background: linear-gradient(45deg, #222, #444);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 400px;
+    height: 250px;
+    background: black;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
-    padding: 10px;
+    border: 2px solid cyan;
+    overflow: hidden;
 }
 
-/* 🎚 Mixer */
+/* 🎚 Mixer (Bottom) */
 .mixer {
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
     display: flex;
-    gap: 20px;
-    padding: 20px;
+    justify-content: space-around;
     background: #1b1b1b;
-    border-radius: 10px;
-}
-
-/* Individual Track */
-.track {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #222;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
 }
 
-/* 🎛 Knob */
-.knob-container {
-    width: 60px;
-    height: 60px;
-}
-
-.knob {
-    width: 100%;
-    height: auto;
-}
-
-/* 🎚 Fader */
-.fader {
-    width: 20px;
-    height: 100px;
-    -webkit-appearance: none;
-    appearance: none;
-    background: #444;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* 🎵 Track Controls */
-.controls {
-    display: flex;
-    gap: 5px;
-}
-
-button {
-    background: black;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.2);
-}
-
-button:hover {
-    background: cyan;
-    color: black;
-}
-
-/* 🚀 V.I.B.E. Circuit Panel */
+/* 🎛 V.I.B.E. Panel (Top Right) */
 .vibe-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     width: 200px;
     background: linear-gradient(45deg, #222, #555);
-    padding: 20px;
-    text-align: center;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(255, 0, 255, 0.5);
 }
 
 /* 🎛 Transport Controls */
 .transport {
+    position: absolute;
+    bottom: 10px;
     display: flex;
     gap: 15px;
-    padding: 20px;
 }
+
 
   

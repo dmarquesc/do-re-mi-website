@@ -1,0 +1,48 @@
+/* vibe.css - Styles for V.I.B.E. AI */
+#vibe-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* 🎵 Zoom Monitor */
+#zoom-monitor {
+    width: 400px;
+    height: 250px;
+    background: black;
+    border-radius: 10px;
+    border: 2px solid cyan;
+    overflow: hidden;
+}
+
+/* 🎚 V.I.B.E. Panel */
+#vibe-panel {
+    background: linear-gradient(45deg, #222, #555);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(255, 0, 255, 0.5);
+}
+
+/* 🎛 Buttons */
+button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.2);
+    margin: 5px;
+}
+
+button:hover {
+    background: cyan;
+    color: black;
+}

@@ -1,6 +1,16 @@
 {
   "dependencies": {
     "@magenta/music": "^1.23.1",
-    "@tensorflow/tfjs": "^4.22.0"
+    "@tensorflow/tfjs": "^4.22.0",
+    "coffeescript": "^2.7.0",
+    "mkdirp": "^3.0.1",
+    "ndarray-resample": "^1.0.1",
+    "simple-peer": "^9.11.1",
+    "three": "^0.173.0",
+    "tonal-array": "^2.2.2",
+    "tone": "^15.0.4",
+    "wavesurfer.js": "^7.9.1",
+    "web-audio-api": "^0.2.2",
+    "webrtc-adapter": "^9.0.1"
   }
 }
