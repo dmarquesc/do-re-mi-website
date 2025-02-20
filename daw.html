@@ -11,35 +11,44 @@
 <body>
 
     <!-- 🎵 Zoom Monitor (Top Left) -->
-    <div class="zoom-monitor">
-        <h2>Zoom Monitor</h2>
-        <canvas id="waveform"></canvas>
-        <video id="videoChat" autoplay></video>
-    </div>
+    <div class="top-section">
+        <div class="zoom-monitor">
+            <h2>Zoom Monitor</h2>
+            <canvas id="waveform"></canvas>
+            <video id="videoChat" autoplay></video>
+        </div>
 
-    <!-- 🎚 Mixer Section (Bottom) -->
-    <div class="mixer">
-        <div class="track">
-            <h3>Track 1</h3>
-            <div class="knob-container">
-                <svg class="knob" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="40" stroke="gray" stroke-width="10" fill="black"/>
-                    <line class="knob-pointer" x1="50" y1="50" x2="50" y2="15" stroke="red" stroke-width="5"/>
-                </svg>
-            </div>
-            <input type="range" class="fader" min="0" max="100" value="50">
-            <div class="controls">
-                <button class="mute">M</button>
-                <button class="solo">S</button>
-                <button class="record">R</button>
-            </div>
+        <!-- 🎛 V.I.B.E. Circuit Panel (Top Right) -->
+        <div class="vibe-panel">
+            <h2>V.I.B.E. Circuit</h2>
+            <button id="vibe-start">Activate AI</button>
+            <button id="vibe-mood">Change Mood</button>
         </div>
     </div>
 
-    <!-- 🚀 V.I.B.E. Circuit Panel (Top Right) -->
-    <div class="vibe-panel">
-        <h2>V.I.B.E. Circuit</h2>
-        <button id="vibe-start">Activate AI</button>
+    <!-- 🎚 Mixer (Full Width Bottom) -->
+    <div class="mixer">
+        <h2>DAW Mixer</h2>
+        <div class="tracks">
+            <!-- Generate 10 Tracks Dynamically -->
+            <script>
+                for (let i = 1; i <= 10; i++) {
+                    document.write(`
+                        <div class="track">
+                            <h3>Track ${i}</h3>
+                            <input type="range" class="fader" min="0" max="100" value="50">
+                            <button class="mute">M</button>
+                            <button class="solo">S</button>
+                            <button class="record">R</button>
+                        </div>
+                    `);
+                }
+            </script>
+        </div>
+        <div class="master-track">
+            <h3>Master Volume</h3>
+            <input type="range" class="fader" min="0" max="100" value="75">
+        </div>
     </div>
 
     <!-- 🎛 Transport Controls -->
@@ -53,4 +62,3 @@
     <script src="daw.js"></script>
 </body>
 </html>
-

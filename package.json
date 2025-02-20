@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "@magenta/music": "^1.23.1",
-    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs": "^2.8.6",
+    "@tensorflow/tfjs-backend-webgl": "^2.8.6",
     "coffeescript": "^2.7.0",
     "mkdirp": "^3.0.1",
     "ndarray-resample": "^1.0.1",
