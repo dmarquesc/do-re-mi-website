@@ -49,6 +49,13 @@ class VibeAI {
 
         const generated = await model.continueSequence(seed, 16, 1.1);
         console.log("🎶 AI Music Generated:", generated.notes);
+        
+        // Optional: Play the generated music
+        const audioBuffer = await this.audioContext.decodeAudioData(generated.notes);  // Ensure this method works with Magenta
+        const source = this.audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(this.audioContext.destination);
+        source.start();
     }
 
     visualizeWaveform() {
