@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Re Mi Profile Dashboard</title>
+    <link rel="stylesheet" href="weddingDashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Profile Section -->
+<section class="profile-settings">
+    <div class="profile-container">
+        <input type="file" id="uploadPic" accept="image/*" hidden>
+        <div class="profile-pic-wrapper">
+            <img id="profilePic" src="placeholder.jpg" alt="Add Image" class="profile-pic">
+            <span class="upload-text">Add Image</span>
+        </div>
+    </div>
+
+    <div class="settings-dropdown">
+        <a href="#">Account Settings</a>
+        <a href="#">Privacy</a>
+        <a href="#">Logout</a>
+    </div>
+</section>
+
+        
+
+        <!-- Bio Section -->
+        <section class="bio-section">
+            <h2>Everly Bloom</h2> <!-- Placeholder name -->
+            <p>Everly is a dedicated wedding planner with a flair for crafting unforgettable moments. She specializes in turning dreams into reality, ensuring every detail is perfectly curated for couples on their special day.
+                
+                Followers: 2,300
+                Following: 1,200</p>
+            <div class="stats">
+                <span>Followers: 1500</span>
+                <span>Following: 800</span>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <!--<section class="settings-section">
+            <a href="#">Profile Settings</a>
+            <a href="#">Privacy Settings</a>
+            <a href="#">Account Settings</a>
+        </section>-->
+
+        <!-- Grid Section -->
+<section class="grid-section">
+    <div class="grid-item">Create & Collaborate</div>
+    <div class="grid-item">Promote & Distribute</div>
+    <div class="grid-item">Perform & Showcase</div>
+    <div class="grid-item">Networking & Community</div>
+    <div class="grid-item">Learn & Grow</div>
+    <div class="grid-item">Marketplace</div>
+</section>
+
+        <!-- Scroll Feed Section -->
+        <section class="scroll-feed" id="scrollFeed"></section>
+    </div>
+
+    <script src="weddingDashboard.js"></script>
+</body>
+</html>
+

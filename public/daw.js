@@ -1,100 +1,235 @@
-// 🎵 AI Performance & Collaboration System
-class VibeAI {
-    constructor() {
-        this.mood = "chill";
-        this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        this.analyser = this.audioContext.createAnalyser();
-        this.waveformCanvas = document.getElementById("waveform");
-        this.canvasCtx = this.waveformCanvas.getContext("2d");
+document.getElementById('vibe-start').addEventListener('click', function() {
+    let statusText = document.getElementById('aiStatusText');
+    let statusIndicator = document.querySelector('.status-indicator');
 
-        this.init();
+    if (statusText.innerText === "Awaiting Activation...") {
+        statusText.innerText = "V.I.B.E. Online!";
+        statusIndicator.classList.add('ai-active');
+    } else {
+        statusText.innerText = "Awaiting Activation...";
+        statusIndicator.classList.remove('ai-active');
     }
+});
 
-    init() {
-        console.log("🎤 V.I.B.E. AI Initialized!");
-        document.getElementById("vibe-start").addEventListener("click", () => this.startPerformance());
-        document.getElementById("vibe-mood").addEventListener("click", () => this.changeMood());
-        document.querySelector(".play").addEventListener("click", () => this.startPerformance());
-        document.querySelector(".stop").addEventListener("click", () => this.stopPerformance());
+/* 🎤 AI Chat Interaction */
+document.getElementById('vibe-chat').addEventListener('click', function() {
+    alert("V.I.B.E.: 'What’s on your mind? Let's make some music!'");
+});
+
+/* 🌊 Audio & Waveform Processing */
+let audioContext, analyser, dataArray, audioSource, fileInput, audioElement;
+
+// Initialize Audio API
+function setupAudio() {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 512;  // Higher value = more detail
+
+    const bufferLength = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(bufferLength);
+}
+
+// Handle Audio Upload & Play
+fileInput = document.getElementById('audioInput');
+fileInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const objectURL = URL.createObjectURL(file);
+    
+    if (!audioElement) {
+        audioElement = new Audio();
+        document.body.appendChild(audioElement);
     }
+    audioElement.src = objectURL;
+    audioElement.controls = true;
+    audioElement.style.position = "absolute";
+    audioElement.style.bottom = "10px";
 
-    startPerformance() {
-        console.log("🎶 AI Performance Started!");
-        this.generateAISequence();
-        this.visualizeWaveform();
+    const track = audioContext.createMediaElementSource(audioElement);
+    track.connect(analyser);
+    analyser.connect(audioContext.destination);
+});
+
+// 🎛 Transport Controls (Play, Stop)
+document.querySelector('.play').addEventListener('click', function() {
+    if (audioElement) {
+        audioElement.play();
+        audioContext.resume();
     }
+});
 
-    stopPerformance() {
-        console.log("⏹️ AI Performance Stopped.");
-        this.canvasCtx.clearRect(0, 0, this.waveformCanvas.width, this.waveformCanvas.height);
+document.querySelector('.stop').addEventListener('click', function() {
+    if (audioElement) {
+        audioElement.pause();
+        audioElement.currentTime = 0;
     }
+});
 
-    changeMood() {
-        this.mood = this.mood === "chill" ? "hype" : "chill";
-        console.log(`🎨 Mood changed to: ${this.mood}`);
-    }
+/* 🌊 WebGL Waveform Visualization */
+let scene, camera, renderer, uniforms, geometry, material, mesh;
 
-    async generateAISequence() {
-        console.log("🎼 Generating AI Music...");
-        const model = new mm.MusicRNN('https://storage.googleapis.com/magentadata/js/checkpoints/music_rnn/chord_pitches_improv');
-        await model.initialize();
+function initWebGL() {
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 2;
 
-        const seed = {
-            notes: [
-                { pitch: 60, startTime: 0, endTime: 0.5 },
-                { pitch: 62, startTime: 0.5, endTime: 1 },
-            ],
-            totalTime: 1
-        };
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-        const generated = await model.continueSequence(seed, 16, 1.1);
-        console.log("🎶 AI Music Generated:", generated.notes);
-        
-        // Optional: Play the generated music
-        const audioBuffer = await this.audioContext.decodeAudioData(generated.notes);  // Ensure this method works with Magenta
-        const source = this.audioContext.createBufferSource();
-        source.buffer = audioBuffer;
-        source.connect(this.audioContext.destination);
-        source.start();
-    }
-
-    visualizeWaveform() {
-        this.analyser.fftSize = 256;
-        const bufferLength = this.analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-
-        const draw = () => {
-            requestAnimationFrame(draw);
-            this.analyser.getByteTimeDomainData(dataArray);
-            this.canvasCtx.fillStyle = "black";
-            this.canvasCtx.fillRect(0, 0, this.waveformCanvas.width, this.waveformCanvas.height);
-
-            this.canvasCtx.lineWidth = 2;
-            this.canvasCtx.strokeStyle = "cyan";
-            this.canvasCtx.beginPath();
-
-            const sliceWidth = this.waveformCanvas.width / bufferLength;
-            let x = 0;
-
-            for (let i = 0; i < bufferLength; i++) {
-                let v = dataArray[i] / 128.0;
-                let y = v * this.waveformCanvas.height / 2;
-
-                if (i === 0) {
-                    this.canvasCtx.moveTo(x, y);
-                } else {
-                    this.canvasCtx.lineTo(x, y);
-                }
-
-                x += sliceWidth;
+    geometry = new THREE.PlaneGeometry(2, 1, 100, 100);
+    material = new THREE.ShaderMaterial({
+        uniforms: {
+            color1: { value: new THREE.Color("#ff00ff") },
+            color2: { value: new THREE.Color("#00ffff") }
+        },
+        vertexShader: `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
             }
+        `,
+        fragmentShader: `
+            uniform vec3 color1;
+            uniform vec3 color2;
+            varying vec2 vUv;
+            void main() {
+                gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
+            }
+        `
+    });
 
-            this.canvasCtx.lineTo(this.waveformCanvas.width, this.waveformCanvas.height / 2);
-            this.canvasCtx.stroke();
-        };
-        draw();
+    mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    animateWave();
+}
+
+// Sync Waveform with Audio Data
+function animateWave() {
+    requestAnimationFrame(animateWave);
+    
+    if (analyser) {
+        analyser.getByteFrequencyData(dataArray);
+        for (let i = 0; i < geometry.attributes.position.count; i++) {
+            let index = Math.floor((i / geometry.attributes.position.count) * dataArray.length);
+            let height = dataArray[index] / 256;
+            geometry.attributes.position.setY(i, height * 0.5);
+        }
+        geometry.attributes.position.needsUpdate = true;
+    }
+
+    renderer.render(scene, camera);
+}
+
+document.getElementById("color1").addEventListener("input", (e) => {
+    material.uniforms.color1.value.set(e.target.value);
+});
+document.getElementById("color2").addEventListener("input", (e) => {
+    material.uniforms.color2.value.set(e.target.value);
+});
+
+// 🏁 Initialize Everything
+window.onload = function() {
+    setupAudio();
+    initWebGL();
+};
+
+const audio = document.getElementById('audio');
+const canvas = document.getElementById('waveformCanvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = 300;
+
+const analyserWaveform = audioContext.createAnalyser();
+analyserWaveform.fftSize = 2048;
+
+const sourceWaveform = audioContext.createMediaElementSource(audio);
+sourceWaveform.connect(analyserWaveform);
+analyserWaveform.connect(audioContext.destination);
+
+const bufferLength = analyserWaveform.frequencyBinCount;
+const dataArrayWaveform = new Uint8Array(bufferLength);
+
+function drawWaveform() {
+    requestAnimationFrame(drawWaveform);
+
+    analyserWaveform.getByteTimeDomainData(dataArrayWaveform);
+
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'lime';
+    ctx.beginPath();
+
+    const sliceWidth = canvas.width / bufferLength;
+    let x = 0;
+
+    for (let i = 0; i < bufferLength; i++) {
+        const y = (dataArrayWaveform[i] / 255) * canvas.height;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+        x += sliceWidth;
+    }
+
+    ctx.stroke();
+}
+
+audio.onplay = () => audioContext.resume().then(drawWaveform);
+
+const spectrumCanvas = document.getElementById('spectrumCanvas');
+const spectrumCtx = spectrumCanvas.getContext('2d');
+
+spectrumCanvas.width = window.innerWidth;
+spectrumCanvas.height = 300;
+
+function drawSpectrum() {
+    requestAnimationFrame(drawSpectrum);
+
+    analyserWaveform.getByteFrequencyData(dataArrayWaveform);
+
+    spectrumCtx.fillStyle = 'black';
+    spectrumCtx.fillRect(0, 0, spectrumCanvas.width, spectrumCanvas.height);
+
+    const barWidth = (spectrumCanvas.width / bufferLength) * 2.5;
+    let x = 0;
+
+    for (let i = 0; i < bufferLength; i++) {
+        const barHeight = dataArrayWaveform[i] * 1.5;
+
+        spectrumCtx.fillStyle = `rgb(${barHeight + 100}, 50, 255)`;
+        spectrumCtx.fillRect(x, spectrumCanvas.height - barHeight, barWidth, barHeight);
+
+        x += barWidth + 1;
     }
 }
 
-// Initialize V.I.B.E.
-const vibe = new VibeAI();
+audio.onplay = () => audioContext.resume().then(drawSpectrum);
+
+// 3D Waveform Interaction
+const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+scene.add(cube);
+
+camera.position.z = 5;
+
+function animate() {
+    requestAnimationFrame(animate);
+    
+    analyserWaveform.getByteFrequencyData(dataArrayWaveform);
+    const bass = dataArrayWaveform[0] / 255;  // React to bass
+    cube.scale.y = 1 + bass * 3;
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    
+    renderer.render(scene, camera);
+}
+
+audio.onplay = () => {
+    audioContext.resume().then(animate);
+};

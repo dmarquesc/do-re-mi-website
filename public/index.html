@@ -4,61 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Futuristic DAW Interface</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A next-gen Digital Audio Workstation (DAW) interface with AI-powered analysis, video conferencing, and a futuristic music production experience.">
+    <meta name="keywords" content="DAW, Digital Audio Workstation, AI Music, Audio Production, Video Conferencing">
+    <meta name="author" content="Your Name">
+    
+    <!-- Social Media Open Graph Tags -->
+    <meta property="og:title" content="Futuristic DAW Interface">
+    <meta property="og:description" content="A next-gen DAW with AI-powered tools, real-time collaboration, and immersive visuals.">
+    <meta property="og:image" content="thumbnail.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Futuristic DAW Interface">
+    <meta name="twitter:description" content="A next-gen DAW with AI-powered tools, real-time collaboration, and immersive visuals.">
+    <meta name="twitter:image" content="thumbnail.jpg">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="daw.css">
+    
+    <!-- TensorFlow & Magenta.js -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@magenta/music"></script>
-    <link rel="stylesheet" href="daw.css">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-
-    <!-- 🎵 Zoom Monitor (Top Left) -->
-    <div class="top-section">
-        <div class="zoom-monitor">
-            <h2>Zoom Monitor</h2>
-            <canvas id="waveform"></canvas>
-            <video id="videoChat" autoplay></video>
+    <main>
+        <div class="container">
+            <div class="top-section">
+                <section id="zoom-monitor" class="zoom-monitor">
+                    <h2 id="zoom-title">Zoom Monitor</h2>
+                    <div class="toggle-container" role="group" aria-label="Waveform and Video Toggle">
+                        <label class="toggle-switch" for="waveformToggle">
+                            <input type="checkbox" id="waveformToggle" aria-label="Toggle between waveform and live video">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Waveform / Live Video</span>
+                    </div>
+                    <div id="waveformContainer">
+                        <canvas id="waveformCanvas" role="img" aria-label="Audio waveform visualization"></canvas>
+                        <canvas id="spectrumCanvas" role="img" aria-label="Audio spectrum visualization"></canvas>
+                        <audio id="audio" controls aria-label="Audio player">
+                            <source src="your-audio-file.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div id="controls">
+                        <label for="color1">Color 1:</label>
+                        <input type="color" id="color1" value="#ff00ff" aria-label="Select first color">
+                        <label for="color2">Color 2:</label>
+                        <input type="color" id="color2" value="#00ffff" aria-label="Select second color">
+                        <input type="file" id="audioInput" accept="audio/*" aria-label="Upload audio file">
+                    </div>
+                    <div id="videoContainer">
+                        <video id="videoChat" autoplay aria-label="Live video chat feed"></video>
+                        <button id="pipMode" aria-label="Enable Picture-in-Picture mode">📺 PiP Mode</button>
+                    </div>
+                </section>
+        
+                <section class="vibe-panel">
+                    <h2 class="vibe-title">V.I.B.E. Circuit Panel</h2>
+                    <div class="ai-avatar">
+                        <canvas id="aiWaveform"></canvas>
+                    </div>
+                    <div class="vibe-controls">
+                        <button>Analyze</button>
+                        <button>Generate</button>
+                    </div>
+                </section>
+            </div>
         </div>
-
-        <!-- 🎛 V.I.B.E. Circuit Panel (Top Right) -->
-        <div class="vibe-panel">
-            <h2>V.I.B.E. Circuit</h2>
-            <button id="vibe-start">Activate AI</button>
-            <button id="vibe-mood">Change Mood</button>
-        </div>
-    </div>
-
-    <!-- 🎚 Mixer (Full Width Bottom) -->
-    <div class="mixer">
-        <h2>DAW Mixer</h2>
-        <div class="tracks">
-            <!-- Generate 10 Tracks Dynamically -->
-            <script>
-                for (let i = 1; i <= 10; i++) {
-                    document.write(`
-                        <div class="track">
-                            <h3>Track ${i}</h3>
-                            <input type="range" class="fader" min="0" max="100" value="50">
-                            <button class="mute">M</button>
-                            <button class="solo">S</button>
-                            <button class="record">R</button>
-                        </div>
-                    `);
-                }
-            </script>
-        </div>
-        <div class="master-track">
-            <h3>Master Volume</h3>
-            <input type="range" class="fader" min="0" max="100" value="75">
-        </div>
-    </div>
-
-    <!-- 🎛 Transport Controls -->
-    <div class="transport">
-        <button class="play">▶</button>
-        <button class="stop">■</button>
-        <button class="record">●</button>
-        <button class="loop">🔄</button>
-    </div>
-
+        
+        
+        <!-- Mixer Section -->
+        <section id="mixer" aria-labelledby="mixer-title">
+            <h2 id="mixer-title">DAW Mixer</h2>
+            <div class="tracks" role="list">
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const tracksContainer = document.querySelector('.tracks');
+                        for (let i = 1; i <= 9; i++) {
+                            let track = document.createElement('div');
+                            track.className = "track";
+                            track.innerHTML = `
+                                <h3>Track ${i}</h3>
+                                <input type="range" class="fader" min="0" max="100" value="50" aria-label="Track ${i} volume slider">
+                                <button class="mute" aria-label="Mute Track ${i}">M</button>
+                                <button class="solo" aria-label="Solo Track ${i}">S</button>
+                                <button class="record" aria-label="Record Track ${i}">R</button>
+                            `;
+                            tracksContainer.appendChild(track);
+                        }
+                    });
+                </script>
+            </div>
+            <div class="master-track">
+                <h3>Master Volume</h3>
+                <input type="range" class="fader" min="0" max="100" value="75" aria-label="Master volume slider">
+            </div>
+        </section>
+    </main>
+    
+    <!-- External JavaScript -->
     <script src="daw.js"></script>
 </body>
 </html>

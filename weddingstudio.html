@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Vision Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <h2>Wedding Studio</h2>
+      <ul>
+        <li><a href="#">Wedding Timeline</a></li>
+        <li><a href="#">Music Playlist</a></li>
+        <li><a href="#">Guest List</a></li>
+        <li><a href="#">Photo/Video Gallery</a></li>
+        <li><a href="#">Budget Tracker</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <h1>Wedding Vision Studio</h1>
+
+      <!-- Timeline Section (replicating DAW tracks) -->
+      <div class="timeline">
+        <h2>Wedding Timeline</h2>
+        <div class="track">
+          <h3>Event 1: Ceremony</h3>
+          <input type="text" placeholder="Event Details" class="event-input">
+          <input type="time" class="event-time">
+          <button class="add-event-btn">Add Event</button>
+        </div>
+        <div class="track">
+          <h3>Event 2: Reception</h3>
+          <input type="text" placeholder="Event Details" class="event-input">
+          <input type="time" class="event-time">
+          <button class="add-event-btn">Add Event</button>
+        </div>
+      </div>
+
+      <!-- Music Playlist Section (similar to track management in DAW) -->
+      <div class="playlist">
+        <h2>Music Playlist</h2>
+        <div class="playlist-track">
+          <h3>Song 1</h3>
+          <input type="text" placeholder="Song Name" class="song-input">
+          <button class="add-song-btn">Add Song</button>
+        </div>
+        <div class="playlist-track">
+          <h3>Song 2</h3>
+          <input type="text" placeholder="Song Name" class="song-input">
+          <button class="add-song-btn">Add Song</button>
+        </div>
+      </div>
+
+      <!-- Guest List Section (a dynamic list) -->
+      <div class="guest-list">
+        <h2>Guest List</h2>
+        <input type="text" placeholder="Add Guest" class="guest-input">
+        <button class="add-guest-btn">Add Guest</button>
+        <ul class="guest-list-ul">
+          <li>Guest 1</li>
+          <li>Guest 2</li>
+        </ul>
+      </div>
+
+      <!-- Photo/Video Gallery Section -->
+      <div class="gallery">
+        <h2>Photo/Video Gallery</h2>
+        <button class="add-media-btn">Add Media</button>
+        <div class="media-grid">
+          <div class="media-item">[Image/Video 1]</div>
+          <div class="media-item">[Image/Video 2]</div>
+        </div>
+      </div>
+
+      <!-- Budget Tracker Section -->
+      <div class="budget">
+        <h2>Budget Tracker</h2>
+        <div class="budget-input">
+          <input type="text" placeholder="Budget Item" class="budget-item">
+          <input type="number" placeholder="Amount" class="budget-amount">
+          <button class="add-budget-btn">Add Item</button>
+        </div>
+        <ul class="budget-list">
+          <li>Item 1: $200</li>
+          <li>Item 2: $500</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

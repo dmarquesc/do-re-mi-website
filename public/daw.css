@@ -8,20 +8,31 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-x: hidden;
+    overflow: auto; /* Prevents scrolling */
+    height: 100vh; /* Ensures full viewport height */
 }
 
-/* 🎵 Top Section (Zoom Monitor + V.I.B.E. Circuit Panel) */
+/* 🎵 Layout Containers */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto; /* Enables scrolling */
+}
+
+
+/* 🎵 Top Section (Zoom Monitor + VIBE Panel) */
 .top-section {
     display: flex;
     width: 100%;
-    height: 40vh;
-    flex-wrap: wrap;
+    height: 50vh; /* Top half of the screen */
 }
+
 
 /* 🎵 Zoom Monitor */
 .zoom-monitor {
-    width: 50%;
+    width: 50%; /* Left half */
     height: 100%;
     background: black;
     border-right: 2px solid cyan;
@@ -29,8 +40,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
+
+/* 🌐 Waveform */
 #waveform {
     width: 90%;
     height: 200px;
@@ -38,19 +53,230 @@ body {
     border: 2px solid cyan;
 }
 
+/* 📊 Video Chat */
+video {
+    width: 90%;
+    height: auto;
+    max-width: 100%;
+    border: 2px solid cyan;
+    border-radius: 10px;
+}
+
+/* 🎥 PiP Mode Button */
+#pipMode {
+    background: rgba(0, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease;
+}
+
+/* 🎤 Mic & Camera Controls */
+.media-controls button {
+    background: rgba(0, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease;
+}
+
+.media-controls button:hover {
+    transform: scale(1.1);
+    background: rgba(0, 255, 255, 0.8);
+}
+
+/* 🔗 Meeting Controls */
+.meeting-controls input,
+.meeting-controls button {
+    background: rgba(0, 255, 255, 0.4);
+    border: none;
+    padding: 12px;
+    margin: 5px;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.meeting-controls button:hover,
+.meeting-controls input:hover {
+    background: rgba(0, 255, 255, 0.6);
+    transform: scale(1.05);
+}
+
+/* 🤖 AI-Powered Analysis */
+#analyzeAudio {
+    background: rgba(0, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#analyzeAudio:hover {
+    background: rgba(0, 255, 255, 0.7);
+    transform: scale(1.1);
+}
+
+/* 🌌 Smooth Scrolling for Meeting Controls */
+.meeting-controls {
+    max-height: 200px;
+    overflow-y: scroll;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: cyan black;
+}
+
+/* 🧑‍💻 Focused Effect for Control Buttons */
+.meeting-controls input,
+.meeting-controls button {
+    background: rgba(0, 255, 255, 0.4);
+    border: none;
+    padding: 12px;
+    margin: 5px;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#pipMode {
+    background: rgba(0, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    margin-left: ;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease;
+}
+
+
 /* 🎛 V.I.B.E. Circuit Panel */
 .vibe-panel {
-    width: 50%;
+    width: 50%; /* Right half */
     height: 100%;
-    background: linear-gradient(45deg, #222, #555);
+    background: linear-gradient(135deg, #111, #222);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-left: 2px solid cyan;
+    box-shadow: inset 0px 0px 15px rgba(0, 255, 255, 0.5);
 }
+
+/* 🌌 Futuristic Title */
+.vibe-title {
+    font-size: 1.8rem;
+    color: cyan;
+    text-shadow: 0px 0px 10px cyan;
+    margin-bottom: 15px;
+}
+
+/* 🔊 AI Avatar (Waveform / Floating Display) */
+.ai-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.4), rgba(0, 255, 255, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    animation: pulse 2s infinite alternate;
+}
+
+/* 🔊 AI Waveform Effect */
+#aiWaveform {
+    width: 100px;
+    height: 100px;
+    background: transparent;
+}
+
+/* 🧠 AI Controls */
+.vibe-controls {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 🎛 Interactive Buttons */
+.vibe-controls button {
+    width: 180px;
+    padding: 12px;
+    background: rgba(0, 255, 255, 0.2);
+    border: 2px solid cyan;
+    color: cyan;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+}
+
+.vibe-controls button:hover {
+    background: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 10px cyan;
+}
+
+/* 📡 AI Status Indicator */
+.ai-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: red;
+    box-shadow: 0 0 10px red;
+    transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* 🔄 AI Active Effect */
+.ai-active .status-indicator {
+    background: lime;
+    box-shadow: 0 0 10px lime;
+}
+
+/* 🌟 AI Avatar Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    }
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+    }
+}
+
+
 
 /* 🎚 Mixer */
 .mixer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 50vh;
     display: flex;
@@ -58,19 +284,28 @@ body {
     align-items: center;
     background: #1b1b1b;
     padding: 10px;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
 
+/* 🎛 Tracks */
 .tracks {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: flex-end;
     width: 100%;
+    height: 80%;
+    gap: 10px;
     flex-wrap: wrap;
+    margin-left: 140px;
+    margin-top: -600px;
 }
-
 .track, .master-track {
     width: 8%;
+    min-width: 60px;
     background: #222;
     padding: 10px;
+    padding-top: 300px;
     margin: 5px;
     text-align: center;
     border-radius: 8px;
@@ -81,11 +316,18 @@ body {
     background: #333;
 }
 
+/* 🎛 Master Track */
+.master-track {
+    width: 10%;
+    margin-left: 50px;
+    margin-top: -435px;
+}
+
 /* 🎛 Advanced Mixer Faders */
 .fader {
-    -webkit-appearance: none; /* Safari */
-    -moz-appearance: none; /* Firefox */
-    appearance: none; /* Standard */
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none; 
     width: 100%;
     height: 10px;
     background: linear-gradient(to right, cyan, magenta);
@@ -94,7 +336,6 @@ body {
     transition: opacity 0.2s;
 }
 
-/* Customizing slider thumb */
 .fader::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -144,22 +385,23 @@ button:active {
 
 /* 📱 Responsive Design */
 @media (max-width: 768px) {
-    .top-section {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .zoom-monitor, .vibe-panel {
-        width: 100%;
-        height: 50vh;
-    }
-
     .tracks {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .track, .master-track {
-        width: 80%;
+        width: 30%;
     }
+}
+
+/* 🎛 Enhanced Button Animations */
+button:focus {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* 🎛 Visualized Waveform */
+#waveform {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
 }
