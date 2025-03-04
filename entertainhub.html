@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="do re mi - The Ultimate Entertainment Hub & Marketplace for Creators">
+    <meta name="keywords" content="digital marketplace, music production, shopping experience, 3D world">
+    <meta name="author" content="DCENTRIC">
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="do re mi - Next-Gen Marketplace">
+    <meta property="og:description" content="A futuristic, interactive shopping and entertainment experience.">
+    <meta property="og:image" content="preview.jpg">
+    <meta property="og:url" content="https://doremimarketplace.com">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- SEO Optimization -->
+    <link rel="canonical" href="https://doremimarketplace.com">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="entertainhub.css">
+
+    <!-- WebGL & JavaScript -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="entertainhub.js"></script>
+
+    <title>Entertainment Hub | do re mi Marketplace</title>
+</head>
+<body>
+    
+    <!-- 🎥 Live Collaboration Monitor -->
+    <div class="zoom-monitor">
+        <div class="monitor-header">
+            <h2>Live Collaboration</h2>
+            <button id="fullscreen-btn">⛶</button>
+            <button id="close-btn">✖</button>
+        </div>
+
+        <!-- Video Streams -->
+        <div class="video-wrapper">
+            <video id="local-video" autoplay muted></video>
+            <video id="remote-video" autoplay></video>
+        </div>
+
+        <!-- Controls -->
+        <div class="monitor-controls">
+            <button id="toggle-camera">🎥 Camera</button>
+            <button id="toggle-mic">🎙️ Mic</button>
+            <button id="share-screen">🖥️ Share Screen</button>
+            <button id="background-blur">🌀 Blur BG</button>
+            <button id="chat-btn">💬 Chat</button>
+        </div>
+
+        <!-- Live Chat Panel -->
+        <div class="chat-panel" id="chat-panel">
+            <div id="chat-messages"></div>
+            <input type="text" id="chat-input" placeholder="Type a message...">
+        </div>
+    </div>
+
+    <!-- 🌎 3D Entertainment Hub -->
+    <div id="webgl-container">
+        
+    </div>
+
+    <!-- 🛒 Marketplace Section -->
+    <section class="marketplace">
+        <h1>Explore the do re mi Marketplace</h1>
+        <div class="shop-container">
+            <div class="shop-item">
+                <img src="beat kit.png" alt="Music Kit" width="150" height="150">
+                <p>Exclusive Music Kits</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="shop-item">
+                <img src="fashion.png" alt="Fashion" width="150" height="150">
+                <p>Limited-Edition Fashion</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 Footer -->
+    <footer>
+        <p>© 2025 do re mi | Powered by DCENTRIC</p>
+    </footer>
+
+</body>
+</html>
+
+

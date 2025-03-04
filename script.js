@@ -65,3 +65,21 @@ document.addEventListener("DOMContentLoaded", function () {
     loginForm.style.display = "none";
     registerForm.style.display = "none";
 });
+
+document.getElementById("register-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    let selectedIndustry = document.getElementById("industry").value;
+    let industryRedirects = {
+        "music": "musicDashboard.html",
+        "wedding": "weddingDashboard.html",
+        "Videography/phoyography": "videophotoDashboard.html",
+        "entertainment": "entertainmentHub.html"
+    };
+
+    if (industryRedirects[selectedIndustry]) {
+        window.location.href = industryRedirects[selectedIndustry]; // Redirect to the correct page
+    } else {
+        this.submit(); // If not in the list, allow normal form submission
+    }
+});

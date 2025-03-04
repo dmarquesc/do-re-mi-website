@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isLoading = true; // Set loading state
 
         try {
-            const response = await fetch("https://api.pexels.com/videos/search?query=wedding&per_page=15", {
+            const response = await fetch("https://api.pexels.com/videos/search?query=beautiful+weddings&per_page=15", {
                 headers: { Authorization: API_KEY }
             });
 

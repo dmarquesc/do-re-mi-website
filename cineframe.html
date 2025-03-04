@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineFrame - AI-Powered Hub</title>
+    <link rel="stylesheet" href="cineframe.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Top Left: Zoom Monitor -->
+        <div class="zoom-monitor">
+            <h2>Zoom Monitor</h2>
+            <video id="zoomVideo" autoplay></video>
+        </div>
+
+        <!-- Right Panel: CineLens AI Suite -->
+        <div class="cinelens-suite">
+            <h2>CineLens AI Suite</h2>
+
+            <div class="lens-simulator">
+                <img src="lens.png" class="svg-icon" alt="Lens Icon" height="25" width="25">
+                <label for="lens">Select Lens:</label>
+                <select id="lens">
+                    <option value="35mm">35mm</option>
+                    <option value="50mm">50mm</option>
+                    <option value="85mm">85mm</option>
+                </select>
+                <button id="applyLens">Apply Lens</button>
+            </div>
+
+            <div class="ai-lighting">
+                <img src="light.png" class="svg-icon" alt="Lighting Icon" height="25" width="25">
+                <h3>AI Smart Lighting</h3>
+                <p id="lightingSuggestion">Loading AI suggestions...</p>
+            </div>
+
+            <div class="composition-overlay">
+                <img src="grid.png" class="svg-icon" alt="Composition Grid" height="25" width="25">
+                <h3>Live Composition Assist</h3>
+                <button id="toggleGrid">Toggle Grid</button>
+            </div>
+        </div>
+
+        <!-- Bottom Panel -->
+        <div class="bottom-panel">
+            <h2>Coming Soon</h2>
+        </div>
+    </div>
+
+    <script src="cineframe.js"></script>
+</body>
+</html>
