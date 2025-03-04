@@ -244,6 +244,50 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
+/* Cyberpunk Glow Button */
+.cyberpunk-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; /* Makes entire button area clickable */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    background: #ffdd00; /* Neon yellow */
+    border-radius: 8px;
+    border: 2px solid black;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    box-shadow: 
+        0 0 10px #ffdd00, 
+        0 0 20px #ffdd00, 
+        0 0 40px #ffdd00;
+}
+
+/* Hover Effect - Intense Glow */
+.cyberpunk-btn:hover {
+    background: black;
+    color: #ffdd00;
+    border-color: #ffdd00;
+    box-shadow: 
+        0 0 15px #ffdd00, 
+        0 0 30px #ffdd00, 
+        0 0 60px #ffdd00;
+}
+
+
+/* Button Centering */
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
 
 /* Scroll Feed Section */
