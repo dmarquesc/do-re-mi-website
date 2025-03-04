@@ -81,36 +81,26 @@
         
         
         <!-- Mixer Section -->
-        <section id="mixer" aria-labelledby="mixer-title">
-            <h2 id="mixer-title">DAW Mixer</h2>
-            <div class="tracks" role="list">
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const tracksContainer = document.querySelector('.tracks');
-                        for (let i = 1; i <= 9; i++) {
-                            let track = document.createElement('div');
-                            track.className = "track";
-                            track.innerHTML = `
-                                <h3>Track ${i}</h3>
-                                <input type="range" class="fader" min="0" max="100" value="50" aria-label="Track ${i} volume slider">
-                                <button class="mute" aria-label="Mute Track ${i}">M</button>
-                                <button class="solo" aria-label="Solo Track ${i}">S</button>
-                                <button class="record" aria-label="Record Track ${i}">R</button>
-                            `;
-                            tracksContainer.appendChild(track);
-                        }
-                    });
-                </script>
+    <section id="mixer" class="mixer">
+        <h2 id="mixer-title">DAW Mixer</h2>
+        <div class="tracks" role="list" id="tracks-container"></div>
+        <div class="master-track">
+            <h3>Master Volume</h3>
+            <input type="range" id="master-volume" class="fader" min="0" max="100" value="75" aria-label="Master volume slider">
+            <div class="user-controls">
+                <a href="musicDashboard.html" class="daw-button">Profile</a>
+                <a href="index.html" class="daw-button">Logout</a>
             </div>
-            <div class="master-track">
-                <h3>Master Volume</h3>
-                <input type="range" class="fader" min="0" max="100" value="75" aria-label="Master volume slider">
-                <div class="user-controls">
-                    <a href="musicDashboard.html" class="daw-button">Profile</a>
-                    <a href="index.html" class="daw-button">Logout</a>
-                </div>
-            </div>
-        </section>
+        </div>
+        <div class="transport">
+            <button id="add-track">+ Track</button>
+            <button id="play">▶ Play</button>
+            <button id="stop">■ Stop</button>
+            <button id="reset">⟲ Reset</button>
+        </div>
+        
+    </section>
+    
     </main>
     
     <!-- External JavaScript -->
