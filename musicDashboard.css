@@ -232,7 +232,7 @@ body {
     transition: background 0.3s ease;
     
     /* Forces square shape */
-    width: 100%;  
+    width: 90%;  
     aspect-ratio: 1 / 1; 
     display: flex;
     align-items: center;
@@ -356,3 +356,17 @@ body {
         grid-column: 1 / -1; /* Feed takes up full width */
     }
 }
+/* Footer Styles */
+footer {
+    width: 100%;
+    background: #1c1c1c;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+

@@ -3,72 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do Re Mi Profile Dashboard</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Do Re Mi Profile Dashboard | Connect & Collaborate</title>
+    <meta name="description" content="Do Re Mi Profile Dashboard - Connect, collaborate, and engage with creatives in music, design, and events.">
+    <meta name="keywords" content="Do Re Mi, social platform, wedding planning, music collaboration, networking, community, marketplace">
+    <meta name="author" content="D'Marques Coleman">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Facebook & LinkedIn) -->
+    <meta property="og:title" content="Do Re Mi Profile Dashboard">
+    <meta property="og:description" content="Connect, collaborate, and engage with top creatives in music, design, and events.">
+    <meta property="og:image" content="https://example.com/preview-image.jpg">
+    <meta property="og:url" content="https://example.com/doremi-dashboard">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Do Re Mi Profile Dashboard">
+    <meta name="twitter:description" content="Join Do Re Mi to connect, collaborate, and showcase your creative work!">
+    <meta name="twitter:image" content="https://example.com/preview-image.jpg">
+    <meta name="twitter:site" content="@doremi">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="weddingDashboard.css">
+
+    <!-- Accessibility & Performance -->
+    <link rel="preload" href="weddingDashboard.css" as="style">
+    <script src="weddingDashboard.js" defer></script>
 </head>
 <body>
     <div class="dashboard">
         <!-- Profile Section -->
-<section class="profile-settings">
-    <div class="profile-container">
-        <input type="file" id="uploadPic" accept="image/*" hidden>
-        <div class="profile-pic-wrapper">
-            <img id="profilePic" src="placeholder.jpg" alt="Add Image" class="profile-pic">
-            <span class="upload-text">Add Image</span>
-        </div>
-    </div>
+        <section class="profile-settings">
+            <div class="profile-container">
+                <input type="file" id="uploadPic" accept="image/*" hidden>
+                <div class="profile-pic-wrapper" role="button" aria-label="Upload Profile Picture">
+                    <img id="profilePic" src="placeholder.jpg" alt="Profile Picture" class="profile-pic">
+                    <span class="upload-text">Add Image</span>
+                </div>
+            </div>
 
-    <div class="settings-dropdown">
-        <a href="#">Account Settings</a>
-        <a href="#">Privacy</a>
-        <a href="#">Logout</a>
-    </div>
-</section>
-
-        
+            <nav class="settings-dropdown" aria-label="Profile Settings">
+                <ul>
+                    <li><a href="#" aria-label="Account Settings">Account Settings</a></li>
+                    <li><a href="#" aria-label="Privacy Settings">Privacy</a></li>
+                    <li><a href="#" aria-label="Logout from your account">Logout</a></li>
+                </ul>
+            </nav>
+        </section>
 
         <!-- Bio Section -->
         <section class="bio-section">
-            <h2>Everly Bloom</h2> <!-- Placeholder name -->
-            <p>Everly is a dedicated wedding planner with a flair for crafting unforgettable moments. She specializes in turning dreams into reality, ensuring every detail is perfectly curated for couples on their special day.
-                
-                Followers: 2,300
-                Following: 1,200</p>
+            <h2>Everly Bloom</h2>
+            <p>
+                Everly is a dedicated wedding planner with a flair for crafting unforgettable moments. 
+                She specializes in turning dreams into reality, ensuring every detail is perfectly curated for couples on their special day.
+            </p>
             <div class="stats">
-                <span>Followers: 1500</span>
-                <span>Following: 800</span>
+                <span><strong>Followers:</strong> 2,300</span>
+                <span><strong>Following:</strong> 1,200</span>
             </div>
         </section>
 
-        <!-- Settings Section -->
-        <!--<section class="settings-section">
-            <a href="#">Profile Settings</a>
-            <a href="#">Privacy Settings</a>
-            <a href="#">Account Settings</a>
-        </section>-->
-
         <!-- Grid Section -->
-<section class="grid-section">
-    <!-- Wedding Studio Button -->
-    <div class="grid-item">
-    <a href="weddingstudio.html" class="wedding-button">💍 Wedding Studio</a>
-    </div>
-
-    <div class="grid-item">Promote & Distribute</div>
-    <div class="grid-item">Perform & Showcase</div>
-    <div class="grid-item">Networking & Community</div>
-    <div class="grid-item">Learn & Grow</div>
-    <div class="grid-item">
-        <a href="entertainhub.html" class="cyberpunk-button">Marketplace</a>
-    </div>
-    
-</section>
+        <section class="grid-section">
+            <div class="grid-item">
+                <a href="weddingstudio.html" class="wedding-button">💍 Wedding Studio</a>
+            </div>
+            <div class="grid-item">Promote & Distribute</div>
+            <div class="grid-item">Perform & Showcase</div>
+            <div class="grid-item">Networking & Community</div>
+            <div class="grid-item">Learn & Grow</div>
+            <div class="grid-item">
+                <a href="entertainhub.html" class="cyberpunk-button">Marketplace</a>
+            </div>
+        </section>
 
         <!-- Scroll Feed Section -->
-        <section class="scroll-feed" id="scrollFeed"></section>
+        <section class="scroll-feed" id="scrollFeed" aria-label="Video Feed"></section>
     </div>
-
-    <script src="weddingDashboard.js"></script>
 </body>
 </html>
-

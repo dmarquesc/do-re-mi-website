@@ -1,13 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Onboarding steps
-    const onboardingSteps = document.querySelectorAll(".onboarding-step");
-    let currentStep = 0;
+    const splashScreen = document.getElementById("splash-screen");
+    const mainContent = document.getElementById("main-content");
+    const splashVideo = document.getElementById("splash-video");
 
-    function showStep(stepIndex) {
-        onboardingSteps.forEach((step, index) => {
-            step.style.display = index === stepIndex ? "block" : "none";
+    // Onboarding elements
+    let currentStep = 0;
+    function showStep(step) {
+        document.querySelectorAll(".onboarding-step").forEach((el, index) => {
+            el.style.display = index === step ? "block" : "none";
         });
     }
+
+    // When the video ends, fade out the splash screen and show content
+    splashVideo.onended = function () {
+        splashScreen.classList.add("fade-out");
+
+        setTimeout(() => {
+            splashScreen.style.display = "none";
+            mainContent.classList.remove("hidden");
+        }, 1000); // Match this timeout with CSS fade-out duration
+    };
 
     // Show first onboarding step
     showStep(currentStep);
@@ -66,20 +78,23 @@ document.addEventListener("DOMContentLoaded", function () {
     registerForm.style.display = "none";
 });
 
-document.getElementById("register-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+// Handle industry-based redirection after registration
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("register-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
 
-    let selectedIndustry = document.getElementById("industry").value;
-    let industryRedirects = {
-        "music": "musicDashboard.html",
-        "wedding": "weddingDashboard.html",
-        "Videography/phoyography": "videophotoDashboard.html",
-        "entertainment": "entertainmentHub.html"
-    };
+        let selectedIndustry = document.getElementById("industry").value;
+        let industryRedirects = {
+            "music": "musicDashboard.html",
+            "wedding": "weddingDashboard.html",
+            "Videography/photography": "videophotoDashboard.html",
+            "entertainment": "entertainmentHub.html"
+        };
 
-    if (industryRedirects[selectedIndustry]) {
-        window.location.href = industryRedirects[selectedIndustry]; // Redirect to the correct page
-    } else {
-        this.submit(); // If not in the list, allow normal form submission
-    }
+        if (industryRedirects[selectedIndustry]) {
+            window.location.href = industryRedirects[selectedIndustry]; // Redirect to the correct page
+        } else {
+            this.submit(); // If not in the list, allow normal form submission
+        }
+    });
 });

@@ -29,23 +29,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    const API_KEY = "Jy1mnvk6Yb3OmlkH6VnfCO95yOGGELCAi0pvq9QNsPFLz0u3fTTez1hh"; // 🔑 Replace with your Pexels API Key
+    const API_KEY = "Jy1mnvk6Yb3OmlkH6VnfCO95yOGGELCAi0pvq9QNsPFLz0u3fTTez1hh"; // Replace with your Pexels API Key
     const FEED = document.getElementById("scrollFeed");
     let isLoading = false; // Prevents multiple API calls at once
     let page = 1; // Tracks API page number for fresh content
 
     // ✅ Function to check if the user is near the bottom of the feed
     function isAtBottom() {
-        return FEED.scrollHeight - FEED.scrollTop <= FEED.clientHeight + 50; // Adjusted margin
+        return FEED.scrollTop + FEED.clientHeight >= FEED.scrollHeight - 10; // Adjusted for better accuracy
     }
 
     // ✅ Function to load new videos from Pexels API
     async function loadMoreVideos() {
         if (isLoading) return; // Prevent multiple fetches
         isLoading = true; // Set loading state
+
+        console.log("Fetching videos..."); // Debugging log
 
         try {
             const response = await fetch(`https://api.pexels.com/videos/search?query=music%20producer&per_page=3&page=${page}`, {
@@ -55,8 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) throw new Error("Failed to fetch videos");
             const data = await response.json();
 
+            console.log("API Response:", data); // Debugging log
+
             // ✅ Ensure at least one video is available before appending
-            if (data.videos.length === 0) {
+            if (!data.videos || data.videos.length === 0) {
                 console.warn("No videos found.");
                 return;
             }
@@ -92,7 +94,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ Scroll event listener to trigger loading when at bottom
     FEED.addEventListener("scroll", () => {
+        console.log("Scroll event triggered"); // Debugging log
         if (isAtBottom()) {
+            loadMoreVideos();
+        }
+    });
+
+    // ✅ Fallback: Window Scroll Event if FEED Scroll Fails
+    window.addEventListener("scroll", () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
             loadMoreVideos();
         }
     });
@@ -100,4 +110,3 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ Initial Load (Loads videos on page load)
     loadMoreVideos();
 });
-

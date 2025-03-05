@@ -45,7 +45,18 @@
 </head>
 
 <body>
-   <!-- Navigation -->
+
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <video id="splash-video" autoplay muted playsinline>
+        <source src="do-re-mi-splash.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- Main Content (Hidden Initially) -->
+<div id="main-content" class="hidden">
+     <!-- Navigation -->
   <!--<header>
     <nav id="main-nav" aria-label="Main navigation">
       <ul>
@@ -135,14 +146,14 @@
           <option value="" disabled selected>Select an industry</option>
           <option value="music">Music</option>
           <option value="wedding">Wedding</option>
-          <option value="technology">Technology</option>
-          <option value="fashion">Fashion</option>
-          <option value="education">Education</option>
-          <option value="healthcare">Healthcare</option>
-          <option value="food">Food & Beverage</option>
+          <option value="technology">Photography/Videography</option>
+          <option value="fashion">Fashion(coming)</option>
+          <option value="education">Education(coming)</option>
+          <option value="healthcare">Healthcare(coming)</option>
+          <option value="food">Food & Beverage(coming)</option>
           <option value="entertainment">Entertainment</option>
-          <option value="real-estate">Real Estate</option>
-          <option value="finance">Finance</option>
+          <option value="real-estate">Real Estate(coming)</option>
+          <option value="finance">Finance(coming)</option>
         </select>
       </div>
       <button type="submit" class="btn">Register</button>
@@ -157,6 +168,7 @@
   <footer>
     <!--<p>&copy; 2025 Do Re Mi App. All rights reserved.</p>-->
   </footer>
+</div>
 
   <script src="script.js"></script>
 </body>

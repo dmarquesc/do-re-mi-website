@@ -3,68 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do Re Mi Profile Dashboard</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Do Re Mi Profile Dashboard | Capture & Connect</title>
+    <meta name="description" content="Nova Lens - A visionary wedding photographer capturing love in its purest form with storytelling and artistry.">
+    <meta name="keywords" content="Do Re Mi, wedding photography, videography, creative network, storytelling, photography marketplace">
+    <meta name="author" content="D'Marques Coleman">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Facebook & LinkedIn) -->
+    <meta property="og:title" content="Do Re Mi Profile Dashboard - Nova Lens">
+    <meta property="og:description" content="Join Nova Lens on Do Re Mi to explore stunning photography and connect with creative professionals.">
+    <meta property="og:image" content="https://example.com/preview-image.jpg">
+    <meta property="og:url" content="https://example.com/doremi-dashboard">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Do Re Mi Profile Dashboard - Nova Lens">
+    <meta name="twitter:description" content="Follow Nova Lens for breathtaking wedding photography and creative insights on Do Re Mi.">
+    <meta name="twitter:image" content="https://example.com/preview-image.jpg">
+    <meta name="twitter:site" content="@doremi">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="videophotoDashboard.css">
+    
+    <!-- Accessibility & Performance Enhancements -->
+    <link rel="preload" href="videophotoDashboard.css" as="style">
+    <script src="videophotoDashboard.js" defer></script>
 </head>
 <body>
     <div class="dashboard">
         <!-- Profile Section -->
-<section class="profile-settings">
-    <div class="profile-container">
-        <input type="file" id="uploadPic" accept="image/*" hidden>
-        <div class="profile-pic-wrapper">
-            <img id="profilePic" src="placeholder.jpg" alt="Add Image" class="profile-pic">
-            <span class="upload-text">Add Image</span>
-        </div>
-    </div>
-
-    <div class="settings-dropdown">
-        <a href="#">Account Settings</a>
-        <a href="#">Privacy</a>
-        <a href="#">Logout</a>
-    </div>
-</section>
-
-        
+        <section class="profile-settings" aria-labelledby="profile-heading">
+            <h2 id="profile-heading" class="visually-hidden">Profile Settings</h2>
+            <div class="profile-container">
+                <input type="file" id="uploadPic" accept="image/*" hidden>
+                <div class="profile-pic-wrapper" role="button" aria-label="Upload Profile Picture">
+                    <img id="profilePic" src="placeholder.jpg" alt="Profile Picture" class="profile-pic">
+                    <span class="upload-text">Add Image</span>
+                </div>
+            </div>
+            <nav class="settings-dropdown" aria-label="Profile Settings">
+                <ul>
+                    <li><a href="#" aria-label="Account Settings">Account Settings</a></li>
+                    <li><a href="#" aria-label="Privacy Settings">Privacy</a></li>
+                    <li><a href="#" aria-label="Logout from your account">Logout</a></li>
+                </ul>
+            </nav>
+        </section>
 
         <!-- Bio Section -->
         <section class="bio-section">
-            <h2>Nova Lens</h2> <!-- Placeholder name -->
-            <p>Nova is a visionary wedding photographer with an eye for capturing love in its purest form. Blending artistry with storytelling, ensuring every shot reflects the beauty and emotion of the moment. With a passion for timeless imagery, she creates lasting memories.
-</p>
+            <h2>Nova Lens</h2>
+            <p>Nova is a visionary wedding photographer with an eye for capturing love in its purest form. Blending artistry with storytelling, ensuring every shot reflects the beauty and emotion of the moment. With a passion for timeless imagery, she creates lasting memories.</p>
             <div class="stats">
-                <span>Followers: 1500</span>
-                <span>Following: 800</span>
+                <span><strong>Followers:</strong> 1,500</span>
+                <span><strong>Following:</strong> 800</span>
             </div>
         </section>
 
-        <!-- Settings Section -->
-        <!--<section class="settings-section">
-            <a href="#">Profile Settings</a>
-            <a href="#">Privacy Settings</a>
-            <a href="#">Account Settings</a>
-        </section>-->
-
         <!-- Grid Section -->
-<section class="grid-section">
-    <div class="grid-item">
-        <a href="cineframe.html" class="photo-button">CineFrame 🎥</a>
-    </div>
-    
-    <div class="grid-item">Promote & Distribute</div>
-    <div class="grid-item">Perform & Showcase</div>
-    <div class="grid-item">Networking & Community</div>
-    <div class="grid-item">Learn & Grow</div>
-    <div class="grid-item">
-        <a href="entertainhub.html" class="cyberpunk-button">Marketplace</a>
-    </div>
-</section>
+        <section class="grid-section" aria-labelledby="dashboard-features">
+            <h2 id="dashboard-features" class="visually-hidden">Dashboard Features</h2>
+            <div class="grid-item">
+                <a href="cineframe.html" class="photo-button">CineFrame 🎥</a>
+            </div>
+            <div class="grid-item">Promote & Distribute</div>
+            <div class="grid-item">Perform & Showcase</div>
+            <div class="grid-item">Networking & Community</div>
+            <div class="grid-item">Learn & Grow</div>
+            <div class="grid-item">
+                <a href="entertainhub.html" class="cyberpunk-button">Marketplace</a>
+            </div>
+        </section>
 
         <!-- Scroll Feed Section -->
-        <section class="scroll-feed" id="scrollFeed"></section>
+        <section class="scroll-feed" id="scrollFeed" aria-label="Video Feed"></section>
     </div>
-
-    <script src="videophotoDashboard.js"></script>
 </body>
 </html>
-

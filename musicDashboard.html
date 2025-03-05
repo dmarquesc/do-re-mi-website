@@ -1,69 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do Re Mi Profile Dashboard</title>
+    <title>Do Re Mi | Profile Dashboard</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Do Re Mi is a platform for musicians, videographers, wedding planners, and entertainment professionals to network, showcase, and grow their careers.">
+    <meta name="keywords" content="music production, entertainment, networking, social media, videography, photography, wedding planning, collaboration">
+    <meta name="author" content="D'Marques Coleman">
+    
+    <!-- Open Graph Meta Tags (For Social Media) -->
+    <meta property="og:title" content="Do Re Mi | Profile Dashboard">
+    <meta property="og:description" content="Connect, create, and collaborate in the entertainment industry with Do Re Mi.">
+    <meta property="og:image" content="https://www.doremi.com/social-preview.jpg"> 
+    <meta property="og:url" content="https://www.doremi.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Do Re Mi | Profile Dashboard">
+    <meta name="twitter:description" content="Join the ultimate platform for musicians, videographers, and industry professionals.">
+    <meta name="twitter:image" content="https://www.doremi.com/social-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="musicDashboard.css">
 </head>
+
 <body>
-    <div class="dashboard">
-        <!-- Profile Section -->
-<section class="profile-settings">
-    <div class="profile-container">
-        <input type="file" id="uploadPic" accept="image/*" hidden>
-        <div class="profile-pic-wrapper">
-            <img id="profilePic" src="placeholder.jpg" alt="Add Image" class="profile-pic">
-            <span class="upload-text">Add Image</span>
-        </div>
-    </div>
-
-    <div class="settings-dropdown">
-        <a href="#">Account Settings</a>
-        <a href="#">Privacy</a>
-        <a href="#">Logout</a>
-    </div>
-</section>
-
+    <header>
         
+    </header>
+
+    <main class="dashboard">
+        <!-- Profile Section -->
+        <section class="profile-settings">
+            <div class="profile-container">
+                <input type="file" id="uploadPic" accept="image/*" hidden>
+                <div class="profile-pic-wrapper">
+                    <img id="profilePic" src="placeholder.jpg" alt="Profile Picture" class="profile-pic">
+                    <label for="uploadPic" class="upload-text">Add Image</label>
+                </div>
+            </div>
+
+            <nav class="settings-dropdown">
+                <ul>
+                    <li><a href="#" aria-label="Account Settings">Account Settings</a></li>
+                    <li><a href="#" aria-label="Privacy Settings">Privacy</a></li>
+                    <li><a href="#" aria-label="Logout">Logout</a></li>
+                </ul>
+            </nav>
+        </section>
 
         <!-- Bio Section -->
         <section class="bio-section">
-            <h2>John Doe</h2> <!-- Placeholder name -->
-            <p>John is a passionate music producer with a keen ear for new talent. He has worked with top artists in various genres, blending his technical skills with his love for creativity. He's constantly exploring new sounds and pushing the boundaries of music production.</p>
+            <h2>John Doe</h2>
+            <p>John is a passionate music producer with a keen ear for new talent. He has worked with top artists across genres, blending his technical skills with creativity.</p>
             <div class="stats">
-                <span>Followers: 1500</span>
-                <span>Following: 800</span>
+                <span aria-label="Followers Count">Followers: 1500</span>
+                <span aria-label="Following Count">Following: 800</span>
             </div>
         </section>
 
-        <!-- Settings Section -->
-        <!--<section class="settings-section">
-            <a href="#">Profile Settings</a>
-            <a href="#">Privacy Settings</a>
-            <a href="#">Account Settings</a>
-        </section>-->
-
         <!-- Grid Section -->
-<section class="grid-section">
-    <div class="grid-item">
-        <a href="daw.html" class="cyberpunk-btn">DAW</a>
-    </div>
-    <div class="grid-item">Promote & Distribute</div>
-    <div class="grid-item">Perform & Showcase</div>
-    <div class="grid-item">Networking & Community</div>
-    <div class="grid-item">Learn & Grow</div>
-    <div class="grid-item">
-        <a href="entertainhub.html" class="cyberpunk-btn">MARKETPLCE</a>
-    </div>
-</section>
-
+        <section class="grid-section">
+            <div class="grid-item">
+                <a href="daw.html" class="cyberpunk-btn">DAW</a>
+            </div>
+            <div class="grid-item">Promote & Distribute</div>
+            <div class="grid-item">Perform & Showcase</div>
+            <div class="grid-item">Networking & Community</div>
+            <div class="grid-item">Learn & Grow</div>
+            <div class="grid-item">
+                <a href="entertainhub.html" class="cyberpunk-btn">Market</a>
+            </div>
+        </section>
 
         <!-- Scroll Feed Section -->
-        <section class="scroll-feed" id="scrollFeed"></section>
-    </div>
+        <section class="scroll-feed" id="scrollFeed" aria-label="Latest Updates"></section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Do Re Mi. All Rights Reserved.</p>
+    </footer>
 
     <script src="musicDashboard.js"></script>
 </body>
-</html>
 
+</html>
